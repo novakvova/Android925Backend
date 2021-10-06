@@ -1,3 +1,4 @@
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -14,6 +15,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Web.ApiBackend.Data;
 using Web.ApiBackend.Data.Identity;
+using Web.ApiBackend.Validations;
 
 namespace Web.ApiBackend
 {
@@ -50,7 +52,10 @@ namespace Web.ApiBackend
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Web.ApiBackend", Version = "v1" });
             });
+
             services.AddCors();
+            services.AddFluentValidation(x =>
+                x.RegisterValidatorsFromAssemblyContaining<Startup>());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
