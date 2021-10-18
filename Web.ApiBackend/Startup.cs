@@ -17,6 +17,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Web.ApiBackend.Data;
 using Web.ApiBackend.Data.Identity;
+using Web.ApiBackend.Mapper;
 using Web.ApiBackend.Validations;
 
 namespace Web.ApiBackend
@@ -58,6 +59,9 @@ namespace Web.ApiBackend
             services.AddCors();
             services.AddFluentValidation(x =>
                 x.RegisterValidatorsFromAssemblyContaining<Startup>());
+
+            services.AddAutoMapper(typeof(AppMapProfile));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
