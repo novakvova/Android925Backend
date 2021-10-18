@@ -13,5 +13,6 @@ namespace Web.ApiBackend.Models
         public string Phone { get; set; }
         public string Password { get; set; }
         public string ConfirmPassword { get; set; }
+        public string Photo { get; set; }
     }
 }

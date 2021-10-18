@@ -14,6 +14,7 @@ namespace Web.ApiBackend.Mapper
         {
             CreateMap<RegisterViewModel, AppUser>()
                 .ForMember(x => x.PhoneNumber, opt => opt.MapFrom(x => x.Phone))
+                .ForMember(x => x.Photo, opt => opt.Ignore())
                 .ForMember(x => x.UserName, opt => opt.MapFrom(x => x.Email));
             //.ForMember(x => x.Image, opt => opt.MapFrom(x => "images/"
             //    + (string.IsNullOrEmpty(x.Photo) ? "noimage.jpg" : x.Photo)));

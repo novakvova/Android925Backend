@@ -13,6 +13,8 @@ namespace Web.ApiBackend.Data.Identity
         public string FirstName { get; set; }
         [StringLength(50)]
         public string SecondName { get; set; }
+        [StringLength(150)]
+        public string Photo { get; set; }
         public virtual ICollection<AppUserRole> UserRoles { get; set; }
     }
 }
